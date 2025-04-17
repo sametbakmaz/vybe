@@ -24,7 +24,7 @@ public class UserEntity implements UserDetails {
     
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "horoscope_id")
-    private Horoscope horoscope;
+    private HoroscopeEntity horoscopeEntity;
     
     @Enumerated(EnumType.STRING)
     private Gender gender;
@@ -63,8 +63,8 @@ public class UserEntity implements UserDetails {
         return birthDate;
     }
 
-    public Horoscope getHoroscope() {
-        return horoscope;
+    public HoroscopeEntity getHoroscope() {
+        return horoscopeEntity;
     }
 
     public Gender getGender() {
@@ -118,8 +118,8 @@ public class UserEntity implements UserDetails {
         this.birthDate = birthDate;
     }
 
-    public void setHoroscope(Horoscope horoscope) {
-        this.horoscope = horoscope;
+    public void setHoroscope(HoroscopeEntity horoscopeEntity) {
+        this.horoscopeEntity = horoscopeEntity;
     }
 
     public void setGender(Gender gender) {

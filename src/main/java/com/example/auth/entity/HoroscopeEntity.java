@@ -5,7 +5,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "horoscopes")
-public class Horoscope {
+public class HoroscopeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -16,7 +16,7 @@ public class Horoscope {
     private int endDay;
     private int endMonth;
 
-    public Horoscope() {}
+    public HoroscopeEntity() {}
 
     // Getters
     public Long getId() {
@@ -72,8 +72,8 @@ public class Horoscope {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Horoscope horoscope = (Horoscope) o;
-        return Objects.equals(id, horoscope.id);
+        HoroscopeEntity horoscopeEntity = (HoroscopeEntity) o;
+        return Objects.equals(id, horoscopeEntity.id);
     }
 
     @Override

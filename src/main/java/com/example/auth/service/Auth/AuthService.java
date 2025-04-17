@@ -6,7 +6,7 @@ import com.example.auth.dto.Auth.LoginRequest;
 import com.example.auth.dto.Auth.RegisterRequest;
 import com.example.auth.entity.Gender;
 import com.example.auth.entity.UserEntity;
-import com.example.auth.entity.Horoscope;
+import com.example.auth.entity.HoroscopeEntity;
 import com.example.auth.repository.UserRepository;
 import com.example.auth.repository.HoroscopeRepository;
 import com.example.auth.security.JwtService;
@@ -49,7 +49,7 @@ public class AuthService {
 
         // Burç hesaplama
         HoroscopeResponse horoscopeResponse = calculateHoroscope(request.getBirthDate());
-        Horoscope horoscope = horoscopeRepository.findById(horoscopeResponse.getId())
+        HoroscopeEntity horoscopeEntity = horoscopeRepository.findById(horoscopeResponse.getId())
                 .orElseThrow(() -> new RuntimeException("Burç bulunamadı!"));
 
         UserEntity userEntity = new UserEntity();
@@ -62,7 +62,7 @@ public class AuthService {
         userEntity.setPassword(passwordEncoder.encode(request.getPassword()));
         userEntity.setProfilePhoto(request.getProfilePhoto());
         userEntity.setBiography(request.getBiography());
-        userEntity.setHoroscope(horoscope);
+        userEntity.setHoroscope(horoscopeEntity);
 
         userRepository.save(userEntity);
 
@@ -87,9 +87,9 @@ public class AuthService {
         int month = birthDate.getMonthValue();
         int day = birthDate.getDayOfMonth();
         
-        Horoscope horoscope = horoscopeRepository.findByMonthAndDay(month, day)
+        HoroscopeEntity horoscopeEntity = horoscopeRepository.findByMonthAndDay(month, day)
                 .orElseThrow(() -> new RuntimeException("Burç hesaplanamadı!"));
         
-        return new HoroscopeResponse(horoscope.getId(), horoscope.getName());
+        return new HoroscopeResponse(horoscopeEntity.getId(), horoscopeEntity.getName());
     }
 } 
