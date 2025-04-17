@@ -1,0 +1,14 @@
+/Users/sametbakmaz/vybebackendnew/src/main/java/com/example/auth/service/AuthService.java
+/Users/sametbakmaz/vybebackendnew/src/main/java/com/example/auth/dto/RegisterRequest.java
+/Users/sametbakmaz/vybebackendnew/src/main/java/com/example/auth/repository/HoroscopeRepository.java
+/Users/sametbakmaz/vybebackendnew/src/main/java/com/example/auth/AuthApplication.java
+/Users/sametbakmaz/vybebackendnew/src/main/java/com/example/auth/dto/LoginRequest.java
+/Users/sametbakmaz/vybebackendnew/src/main/java/com/example/auth/security/JwtService.java
+/Users/sametbakmaz/vybebackendnew/src/main/java/com/example/auth/dto/AuthResponse.java
+/Users/sametbakmaz/vybebackendnew/src/main/java/com/example/auth/config/SecurityConfig.java
+/Users/sametbakmaz/vybebackendnew/src/main/java/com/example/auth/controller/AuthController.java
+/Users/sametbakmaz/vybebackendnew/src/main/java/com/example/auth/repository/UserRepository.java
+/Users/sametbakmaz/vybebackendnew/src/main/java/com/example/auth/dto/HoroscopeResponse.java
+/Users/sametbakmaz/vybebackendnew/src/main/java/com/example/auth/entity/User.java
+/Users/sametbakmaz/vybebackendnew/src/main/java/com/example/auth/entity/Gender.java
+/Users/sametbakmaz/vybebackendnew/src/main/java/com/example/auth/entity/Horoscope.java
