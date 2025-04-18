@@ -1,6 +1,7 @@
 package com.example.auth.service.Profile;
 
 import com.example.auth.dto.Profile.ProfileDto;
+import com.example.auth.entity.UserEntity;
 import com.example.auth.mapper.ProfileDtoMapper;
 import com.example.auth.repository.UserRepository;
 import org.springframework.security.core.Authentication;
@@ -21,10 +22,16 @@ public class ProfileServiceImpl implements ProfileService {
     @Override
     public ProfileDto getUserProfile() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String userEmail = authentication.getName();
-
-        return userRepository.findByUsernameOrEmail(userEmail, userEmail)
+        
+        if (authentication == null || !authentication.isAuthenticated() || 
+            authentication.getName().equals("anonymousUser")) {
+            return null; // Kullanıcı kimlik doğrulaması yapmamış
+        }
+        
+        String userIdentifier = authentication.getName();
+        
+        return userRepository.findByUsernameOrEmail(userIdentifier, userIdentifier)
                 .map(profileDtoMapper::map)
-                .orElse(null); // ya da throw new RuntimeException("User not found");
+                .orElse(null);
     }
 }
